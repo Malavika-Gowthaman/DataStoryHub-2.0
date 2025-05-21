@@ -1,0 +1,13 @@
+streamlit
+pandas
+vanna[chromadb,openai,snowflake]
+python-dotenv
+uvicorn
+fastapi
+psycopg2-binary
+passlib[bcrypt]
+python-jose
+asyncpg
+python-multipart
+fastapi-users[sqlalchemy,oauth2]
+streamlit

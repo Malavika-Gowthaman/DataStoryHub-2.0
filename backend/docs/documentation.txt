@@ -1,0 +1,96 @@
+
+
+Table Name: CHOICE_HEALTH_AT_HOME.AUTOHUB_JSON_RAW_LAYER
+Description: Stores raw JSON data from AutoHub along with metadata for tracking and processing.
+Key Columns: AUTOHUB_JSON_DATA_RAW (raw JSON data), RECEIVED_TIME (timestamp of data receipt), FILENAME (source file name), ROW_NUMBER (sequence number of the record)
+====================================================================================================
+
+
+Table Name: CHOICE_HEALTH_AT_HOME.CL_LOAD_AUTOHUB2_DETAILS
+Description: Stores detailed information about automated workflow execution, including process runs, transaction status, and stage progression.
+Key Columns: CL_LOAD_ID (unique load identifier), PROCESS_RUN_ID (process run identifier), TRANSACTION_STATUS (transaction status), STAGE_ID (stage identifier), TRANSACTIONSTART (transaction start timestamp), TRANSACTIONEND (transaction end timestamp), ATTRIBUTES_INPUT_JSON (input attributes), ATTRIBUTES_OUTPUT_JSON (output attributes).
+====================================================================================================
+
+
+Table Name: CHOICE_HEALTH_AT_HOME.FUNCTIONAL_BLOCK_DETAILS
+Description: Stores information about functional blocks, including their names and update history.
+Key Columns: FB_ID (unique identifier for each functional block), UPDATED_AT (timestamp of last update), UPDATED_BY (username of the person who made the last update)
+====================================================================================================
+
+
+Table Name: CHOICE_HEALTH_AT_HOME.INTERVENTIONS_DETAILS
+Description: Stores detailed information about interventions, including their status, activities, and associated metadata.
+Key Columns: INTERVENTION_RUN_ID (unique run identifier), INTERVENTIONS_ID (intervention identifier), PROCESS_ID (associated process), INTERVENTION_STATUS (status of intervention), LATEST_INTERVENTION_FLAG (indicates if it's the latest intervention).
+====================================================================================================
+
+
+Table Name: CHOICE_HEALTH_AT_HOME.INTERVENTIONS_DETAILS_MANUAL
+Description: Stores manual intervention details and their corresponding metadata.
+Key Columns: INTERVENTIONS_ID (unique intervention identifier), TRANSACTION_ID (associated transaction), STAGE_ID (stage in the intervention process), INTERVENTION_STATUS (status of the intervention), FB_ID (feedback identifier), AGENCY_ID (agency responsible for the intervention).
+====================================================================================================
+
+
+Table Name: CHOICE_HEALTH_AT_HOME.OVERVIEW_DASHBOARD
+Description: This table stores transactional data for health services provided at home, offering insights into the processing timeline and status.
+Key Columns: TRANSACTION_ID (unique identifier), TRANSACTION_START (initiation timestamp), STATUS (current processing status), PROCESSING_TIME (duration of processing), UPDATED_AT (last modification timestamp)
+====================================================================================================
+
+
+Table Name: CHOICE_HEALTH_AT_HOME.REVIEWED_RECORDS
+Description: This table stores reviewed records of healthcare services provided at home.
+Key Columns: WORKFLOW_ID (unique workflow identifier), E5_ID (patient identifier), REVIEW_TYPE (type of review performed), IS_REVIEWED (review status), UPDATED_AT (timestamp of last update), UPDATED_BY (user who made the last update).
+====================================================================================================
+
+
+Table Name: CHOICE_HEALTH_AT_HOME.STAGE_DETAILS
+Description: Stores information about each stage in a workflow, including its order and name.
+Key Columns: STAGE_ID (unique identifier for each stage), STAGE_ORDER (order of the stage in the workflow), WORKFLOW_ID (foreign key referencing the workflow).
+====================================================================================================
+
+
+Table Name: CHOICE_HEALTH_AT_HOME.STATUS_DETAILS
+Description: Stores the status details of a patient's health at home, including the status name, code, and workflow ID.
+Key Columns: STATUS_ID (unique identifier), STATUS_CODE (status code), WORKFLOW_ID (associated workflow ID)
+====================================================================================================
+
+
+Table Name: CHOICE_HEALTH_AT_HOME.TENANT_CONFIG
+Description: Stores configuration settings for each tenant in the system.
+Key Columns: CONFIG_KEY (unique identifier for each configuration setting), CONFIG_JSON (actual configuration value), DESCRIPTION (brief explanation of the setting).
+====================================================================================================
+
+
+Table Name: CHOICE_HEALTH_AT_HOME.TRANSACTIONS
+Description: This table stores transactional data related to health-at-home activities, including their status, stages, and associated metadata.
+Key Columns: TRANSACTION_ID, TRANSACTION_STATUS_ID, STAGE_ID, START_DATE_TIME, END_DATE_TIME, TRANSACTIONPRIORITYFLAG, IS_FINAL_EVENT, UPDATED_BY, UPDATED_AT, AGENCY_ID, UNIQUE_IDENTIFIER
+====================================================================================================
+
+
+Table Name: CHOICE_HEALTH_AT_HOME.TRANSACTIONS_FACT_DETAILS
+Description: This table stores detailed transactional data for health-related activities performed at home.
+Key Columns: TRANSACTION_ID (unique transaction identifier), TRANSACTION_STATUS_ID (status of the transaction), START_DATE_TIME (start time of the transaction), TRANSACTION_PRIORITY_FLAG (priority level of the transaction), ATTRIBUTES_INPUT_JSON (input attributes), ATTRIBUTES_OUTPUT_JSON (output attributes), IS_FINAL_EVENT (indicates if the transaction is final), STAGE_ID (stage of the transaction), PROCESS_ID (process associated with the transaction).
+====================================================================================================
+
+
+Table Name: CHOICE_HEALTH_AT_HOME.TRANSACTIONS_FACT_DETAILS_ANALYTICAL
+Description: Stores detailed analytical information about transactions at home, including their status and processing history.
+Key Columns: TRANSACTION_ID, TRANSACTION_STATUS_ID, STAGE_ID, PROCESS_RUN_DATE_TIME, TRANS_LATEST_FLAG, UPDATED_AT
+====================================================================================================
+
+
+Table Name: CHOICE_HEALTH_AT_HOME.USER_ACTION_DIM
+Description: Stores user actions performed on the health at home platform.
+Key Columns: ACTION_CODE (unique action identifier), ACTION_TYPE (category of action), ACTION (specific action taken), CREATED_AT (timestamp of action occurrence)
+====================================================================================================
+
+
+Table Name: CHOICE_HEALTH_AT_HOME.USER_ACTIVITY_LOG
+Description: Stores a log of user activities, transactions, and process runs for health-related services at home.
+Key Columns: ID, ACTIVITY_ID, TRANSACTION_ID, MODULE_ID, STAGE_ID, USER_ID, CREATED_AT, PROCESS_RUN_ID, AGENCY_ID,
+====================================================================================================
+
+
+Table Name: CHOICE_HEALTH_AT_HOME.USER_INITIATED_ACTION_QUEUE
+Description: Stores user-initiated actions and their corresponding status in the workflow process.
+Key Columns: ACTIVITY_ID (unique identifier for the activity), PROCESS_ID (process identifier), TRANSACTION_STATUS_ID (status of the transaction), STAGE_ID (stage identifier in the workflow), USER_ACTION_CODE (code for the user action), UPDATED_BY (last updated user), UNIQUE_IDENTIFIER (unique identifier for the record).
+====================================================================================================

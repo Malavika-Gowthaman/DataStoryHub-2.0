@@ -1,0 +1,542 @@
+
+CREATE TABLE autohub_json_raw_layer (
+	autohub_json_data_raw VARIANT, 
+	filename VARCHAR(16777216), 
+	row_number DECIMAL(38, 0), 
+	received_time TIMESTAMP_TZ
+)
+
+/*
+3 rows from autohub_json_raw_layer table:
+autohub_json_data_raw	filename	row_number	received_time
+{
+  "activityId": "CiQxZDhlYzZkZC05NGQxLTRhOGQtODhiOC01NmEzYWZhNjdjYTASJGQwNDM3NDkwLTc3MmYtNDgxNS05Z	topics/choice-health-at-home-workflow-log-event-prod02/partition=0/choice-health-at-home-workflow-lo	1	2023-04-20 12:50:10.297000+00:00
+{
+  "activityId": "CiQxZDhlYzZkZC05NGQxLTRhOGQtODhiOC01NmEzYWZhNjdjYTASJGQwNDM3NDkwLTc3MmYtNDgxNS05Z	topics/choice-health-at-home-workflow-log-event-prod02/partition=0/choice-health-at-home-workflow-lo	2	2023-04-20 12:50:10.297000+00:00
+{
+  "activityId": "CiQxZDhlYzZkZC05NGQxLTRhOGQtODhiOC01NmEzYWZhNjdjYTASJGQwNDM3NDkwLTc3MmYtNDgxNS05Z	topics/choice-health-at-home-workflow-log-event-prod02/partition=0/choice-health-at-home-workflow-lo	3	2023-04-20 12:50:10.297000+00:00
+*/
+
+
+CREATE TABLE cl_load_autohub2_details (
+	cl_load_id DECIMAL(38, 0) IDENTITY(1,1), 
+	activity_id VARCHAR(16777216), 
+	tenantid VARCHAR(255), 
+	prebuiltworkflowid VARCHAR(16777216), 
+	process_id VARCHAR(255), 
+	process_run_id VARCHAR(255), 
+	transaction_id VARCHAR(255), 
+	uipath_started_at TIMESTAMP_TZ, 
+	uipath_completed_at TIMESTAMP_TZ, 
+	uipath_bot VARCHAR(255), 
+	mw_started_at TIMESTAMP_TZ, 
+	mw_completed_at TIMESTAMP_TZ, 
+	mw_name VARCHAR(255), 
+	transaction_status VARCHAR(255), 
+	fb_status VARCHAR(255), 
+	transaction_status_id VARCHAR(255), 
+	stage_id VARCHAR(255), 
+	stage_name VARCHAR(255), 
+	stage_order DECIMAL(38, 0), 
+	stage_status VARCHAR(16777216), 
+	fb_id VARCHAR(255), 
+	functional_block VARCHAR(255), 
+	start_date_time TIMESTAMP_TZ, 
+	end_date_time TIMESTAMP_TZ, 
+	transactionstart TIMESTAMP_TZ, 
+	transactionend TIMESTAMP_TZ, 
+	transactionpriorityflag VARCHAR(2), 
+	attributes_input_json VARIANT, 
+	attributes_output_json VARIANT, 
+	is_final_event BOOLEAN, 
+	trans_latest_flag VARCHAR(2), 
+	updated_by VARCHAR(16777216), 
+	updated_at TIMESTAMP_TZ, 
+	is_user_updated_interventions BOOLEAN, 
+	stage_status_id VARCHAR(100), 
+	original_source_code VARCHAR(16777216), 
+	original_source_name VARCHAR(16777216), 
+	user_action_code VARCHAR(16777216), 
+	is_workflow_log_event BOOLEAN, 
+	is_hard_terminate BOOLEAN, 
+	last_succeeded_step VARCHAR(16777216), 
+	agency_id VARCHAR(16777216), 
+	unique_identifier VARCHAR(16777216)
+)
+
+/*
+3 rows from cl_load_autohub2_details table:
+cl_load_id	activity_id	tenantid	prebuiltworkflowid	process_id	process_run_id	transaction_id	uipath_started_at	uipath_completed_at	uipath_bot	mw_started_at	mw_completed_at	mw_name	transaction_status	fb_status	transaction_status_id	stage_id	stage_name	stage_order	stage_status	fb_id	functional_block	start_date_time	end_date_time	transactionstart	transactionend	transactionpriorityflag	attributes_input_json	attributes_output_json	is_final_event	trans_latest_flag	updated_by	updated_at	is_user_updated_interventions	stage_status_id	original_source_code	original_source_name	user_action_code	is_workflow_log_event	is_hard_terminate	last_succeeded_step	agency_id	unique_identifier
+1323070	
+$1d8ec6dd-94d1-4a8d-88b8-56a3afa67ca0$04a40c13-8922-4755-a102-397116869f4f$16f539ff-fbc7-4979-aeb	63d02883e9ae7f0023064275	6440e9957466c000224eff0d	6440e9957466c000224eff0d	00434d94-5ed5-401a-8b50-5abcd0aa3ac1	bdef996236edef9f82a50039f8c8b5ba	1970-01-01 00:00:00+00:00	1970-01-01 00:00:00+00:00	uipath	2025-01-12 17:07:29.499000+00:00	2025-01-12 17:07:29.499000+00:00	workflow-manager	In Progress	In Progress	status_001	stage_006	Upload DL into HCHB	6	In Progress	FB006	update_PCR_status	2025-01-12 17:07:29.499000+00:00	None	2024-12-27 05:06:11.280000+00:00	None	None	{
+  "benefit_period": "9",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	{
+  "benefit_period": "9",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	False	N	AUTOHUB_TRANSCATIONAL_REPORT_LOAD	2025-01-12 17:10:20.290000+00:00	None	status_001	None	None	action_004	True	False	after completion of Update PCR status.	None	bdef996236edef9f82a50039f8c8b5ba_6440e9957466c000224eff0d
+1323084	
+$1d8ec6dd-94d1-4a8d-88b8-56a3afa67ca0$68207992-5df7-49d2-a565-170c22020305$90f1590b-3986-464a-a2e	63d02883e9ae7f0023064275	6440e9957466c000224eff0d	6440e9957466c000224eff0d	73a0f3d3-f268-442f-bfeb-d1bfcd791950	721864646a1da4dea2be1bda7abdeb99	1970-01-01 00:00:00+00:00	1970-01-01 00:00:00+00:00	uipath	2025-01-12 17:11:16.218000+00:00	2025-01-12 17:11:16.218000+00:00	workflow-manager	In Progress	In Progress	status_001	stage_006	Upload DL into HCHB	6	In Progress	FB006	update_PCR_status	2025-01-12 17:11:16.218000+00:00	None	2024-12-27 05:06:11.280000+00:00	None	None	{
+  "benefit_period": "7",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	{
+  "benefit_period": "7",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	False	N	AUTOHUB_TRANSCATIONAL_REPORT_LOAD	2025-01-12 17:20:18.528000+00:00	None	status_001	None	None	action_004	True	False	after completion of Update PCR status.	None	721864646a1da4dea2be1bda7abdeb99_6440e9957466c000224eff0d
+1323193	
+$89a4774d-90b3-4afa-a78c-0f422ebc8ac7$cff3ec87-5210-4980-a44f-a1d5a68a92a2$fbd353da-08f5-42c9-b83	63d02883e9ae7f0023064275	6440e9957466c000224eff0d	6440e9957466c000224eff0d	01371a71-8b39-4a4a-84d9-505fcde39b5b	b937abbc0febfdf5efb14e83366e1a4d	1970-01-01 00:00:00+00:00	1970-01-01 00:00:00+00:00	uipath	2025-01-12 17:46:09.948000+00:00	2025-01-12 17:46:09.948000+00:00	workflow-manager	In Progress	In Progress	status_001	stage_009	Extract and update UTN	4	In Progress	FB008	read_DCN_UTN_download_desicion_letter	2025-01-12 17:46:09.948000+00:00	None	2025-01-09 03:14:45.926000+00:00	None	None	{
+  "benefit_period": "4",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	{
+  "benefit_period": "4",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	False	N	AUTOHUB_TRANSCATIONAL_REPORT_LOAD	2025-01-12 17:50:17.035000+00:00	None	status_001	None	None	action_004	True	False	after completion of Extract UTN.	None	b937abbc0febfdf5efb14e83366e1a4d_6440e9957466c000224eff0d
+*/
+
+
+CREATE TABLE functional_block_details (
+	fb_id VARCHAR(16777216), 
+	fb_name VARCHAR(16777216), 
+	updated_at TIMESTAMP_NTZ, 
+	updated_by VARCHAR(16777216)
+)
+
+/*
+3 rows from functional_block_details table:
+fb_id	fb_name	updated_at	updated_by
+FB001	EXPORT_EHR_GRID_DATA	2025-04-21 11:53:38.814000	WORKFLOW_MANAGER
+FB002	DOWNLOAD_PCR	2025-04-21 11:53:38.814000	WORKFLOW_MANAGER
+FB003	TRANSFORM_TO_PALMETTO	2025-04-21 11:53:38.814000	WORKFLOW_MANAGER
+*/
+
+
+CREATE TABLE interventions_details (
+	intervention_run_id VARCHAR(16777216), 
+	interventions_id VARCHAR(16777216), 
+	activity_id VARCHAR(16777216), 
+	process_id VARCHAR(255), 
+	process_run_id VARCHAR(255), 
+	error_code VARCHAR(16777216), 
+	key VARCHAR(16777216), 
+	value VARCHAR(16777216), 
+	reason VARCHAR(16777216), 
+	received_timestamp TIMESTAMP_TZ, 
+	src_updated_at TIMESTAMP_TZ, 
+	src_updated_by VARCHAR(16777216), 
+	transaction_id VARCHAR(255), 
+	stage_id VARCHAR(255), 
+	fb_id VARCHAR(255), 
+	updated_at TIMESTAMP_TZ, 
+	updated_by VARCHAR(16777216), 
+	intervention_status VARCHAR(100), 
+	latest_intervention_flag VARCHAR(2), 
+	required_actions VARIANT, 
+	attributes_input_json VARIANT, 
+	stage_status_id VARCHAR(16777216), 
+	transaction_status_id VARCHAR(16777216), 
+	agency_id VARCHAR(16777216), 
+	unique_identifier VARCHAR(16777216)
+)
+
+/*
+3 rows from interventions_details table:
+intervention_run_id	interventions_id	activity_id	process_id	process_run_id	error_code	key	value	reason	received_timestamp	src_updated_at	src_updated_by	transaction_id	stage_id	fb_id	updated_at	updated_by	intervention_status	latest_intervention_flag	required_actions	attributes_input_json	stage_status_id	transaction_status_id	agency_id	unique_identifier
+7e8dcc86-9294-4101-b0ce-ba6875a24777	1f0ae60292ec9c26084c09ffebb28f58	CiQxZDhlYzZkZC05NGQxLTRhOGQtODhiOC01NmEzYWZhNjdjYTASJGU1YjQzYWU3LTFmMzAtNGU3Zi1iNTZhLWZlOTMzNDViMGE3	6440e9957466c000224eff0d	e5b43ae7-1f30-4e7f-b56a-fe93345b0a7a	ER-DYNAMICTREE-ER2024	Question1	-	Q1 is not available	2023-08-02 05:15:51.376000+00:00	None	None	2df15e1af5c1288703df06da679739f0	stage_001	FB002	2023-08-02 05:20:24.204000+00:00	AUTOHUB_TRANSCATIONAL_REPORT_LOAD	OPEN	Y	null	{
+  "benefit_period": "1",
+  "benefit_period_status": "DISCHARGED",
+  "billing_periods_submitted": "	status_003	status_003	None	2df15e1af5c1288703df06da679739f0_6440e9957466c000224eff0d
+fe51486e-a7da-423c-bd2b-d80af1621836	b499a230808cd80cbc51d71faa44717c	CiQxZDhlYzZkZC05NGQxLTRhOGQtODhiOC01NmEzYWZhNjdjYTASJGU1YjQzYWU3LTFmMzAtNGU3Zi1iNTZhLWZlOTMzNDViMGE3	6440e9957466c000224eff0d	e5b43ae7-1f30-4e7f-b56a-fe93345b0a7a	ER-DYNAMICTREE-ER2026	Question2	-	Q2 is not available	2023-08-02 05:15:51.376000+00:00	None	None	2df15e1af5c1288703df06da679739f0	stage_001	FB002	2023-08-02 05:20:24.204000+00:00	AUTOHUB_TRANSCATIONAL_REPORT_LOAD	OPEN	Y	null	{
+  "benefit_period": "1",
+  "benefit_period_status": "DISCHARGED",
+  "billing_periods_submitted": "	status_003	status_003	None	2df15e1af5c1288703df06da679739f0_6440e9957466c000224eff0d
+437e440c-a9a6-4c66-9a0b-fd330ce9f3be	615adb97809c48f0a882bf8e548090c9	CiQxZDhlYzZkZC05NGQxLTRhOGQtODhiOC01NmEzYWZhNjdjYTASJGU1YjQzYWU3LTFmMzAtNGU3Zi1iNTZhLWZlOTMzNDViMGE3	6440e9957466c000224eff0d	e5b43ae7-1f30-4e7f-b56a-fe93345b0a7a	ER-DYNAMICTREE-ER2028	Question3	-	Q3 is not available	2023-08-02 05:15:51.376000+00:00	None	None	2df15e1af5c1288703df06da679739f0	stage_001	FB002	2023-08-02 05:20:24.204000+00:00	AUTOHUB_TRANSCATIONAL_REPORT_LOAD	OPEN	Y	null	{
+  "benefit_period": "1",
+  "benefit_period_status": "DISCHARGED",
+  "billing_periods_submitted": "	status_003	status_003	None	2df15e1af5c1288703df06da679739f0_6440e9957466c000224eff0d
+*/
+
+
+CREATE TABLE interventions_details_manual (
+	interventions_id VARCHAR(16777216), 
+	error_code VARCHAR(16777216), 
+	trans_latest_flag VARCHAR(2), 
+	key VARCHAR(16777216), 
+	value VARCHAR(16777216), 
+	reason VARCHAR(16777216), 
+	received_timestamp TIMESTAMP_TZ, 
+	src_updated_at VARIANT, 
+	src_updated_by VARCHAR(16777216), 
+	transaction_id VARCHAR(255), 
+	stage_id VARCHAR(255), 
+	updated_at TIMESTAMP_TZ, 
+	updated_by VARCHAR(16777216), 
+	intervention_status VARCHAR(4), 
+	latest_intervention_flag VARCHAR(1), 
+	required_actions VARIANT, 
+	fb_id VARCHAR(255), 
+	activity_id VARCHAR(16777216), 
+	process_id VARCHAR(255), 
+	process_run_id VARCHAR(255), 
+	attributes_input_json VARIANT, 
+	stage_status_id VARCHAR(100), 
+	transaction_status_id VARCHAR(255), 
+	agency_id VARCHAR(16777216), 
+	unique_identifier VARCHAR(16777216)
+)
+
+/*
+3 rows from interventions_details_manual table:
+interventions_id	error_code	trans_latest_flag	key	value	reason	received_timestamp	src_updated_at	src_updated_by	transaction_id	stage_id	updated_at	updated_by	intervention_status	latest_intervention_flag	required_actions	fb_id	activity_id	process_id	process_run_id	attributes_input_json	stage_status_id	transaction_status_id	agency_id	unique_identifier
+26aee7ebe812999560bdad434db443b4	E5.HCHB.E0330	Y	Submission management	-	No current record found in HCHB	2023-11-28 13:02:56.567000+00:00	null	None	227266c77821930173edbb13d3f93a08	stage_009	2023-11-29 05:57:34.586000+00:00	AUTOHUB_TRANSCATIONAL_REPORT_LOAD	OPEN	Y	null	FB006	CiQxZDhlYzZkZC05NGQxLTRhOGQtODhiOC01NmEzYWZhNjdjYTASJDk0OTRlOWIxLTExODgtNDk2Yi1iNGNjLTJkYjgwNjliZjEy	6440e9957466c000224eff0d	9494e9b1-1188-496b-b4cc-2db8069bf120	{
+  "benefit_period": "2",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	status_003	status_003	None	227266c77821930173edbb13d3f93a08_6440e9957466c000224eff0d
+26aee7ebe812999560bdad434db443b4	E5.HCHB.E0330	Y	Submission management	-	No current record found in HCHB	2023-11-28 13:04:17.203000+00:00	null	None	31e14ffdb216f43ee6e80a9c86edb722	stage_009	2023-11-29 05:57:34.586000+00:00	AUTOHUB_TRANSCATIONAL_REPORT_LOAD	OPEN	Y	null	FB006	CiQxZDhlYzZkZC05NGQxLTRhOGQtODhiOC01NmEzYWZhNjdjYTASJGU4N2IwNThlLWY0N2ItNDk4ZC1hNDU1LWJiYTQxZDVjN2Ex	6440e9957466c000224eff0d	e87b058e-f47b-498d-a455-bba41d5c7a1e	{
+  "benefit_period": "1",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	status_003	status_003	None	31e14ffdb216f43ee6e80a9c86edb722_6440e9957466c000224eff0d
+26aee7ebe812999560bdad434db443b4	E5.HCHB.E0330	Y	Submission management	-	No current record found in HCHB	2023-11-28 13:04:53.422000+00:00	null	None	ed70d78cd5ee43e2ba36011477a4b7f4	stage_009	2023-11-29 05:57:34.586000+00:00	AUTOHUB_TRANSCATIONAL_REPORT_LOAD	OPEN	Y	null	FB006	CiQxZDhlYzZkZC05NGQxLTRhOGQtODhiOC01NmEzYWZhNjdjYTASJDM2M2U0NzhjLTVlNDQtNDczMC04MzJhLTVjYTcxMjczZjNl	6440e9957466c000224eff0d	363e478c-5e44-4730-832a-5ca71273f3e6	{
+  "benefit_period": "1",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	status_003	status_003	None	ed70d78cd5ee43e2ba36011477a4b7f4_6440e9957466c000224eff0d
+*/
+
+
+CREATE TABLE overview_dashboard (
+	transaction_id VARCHAR(255), 
+	transaction_start TIMESTAMP_NTZ, 
+	transaction_end TIMESTAMP_NTZ, 
+	tenant_id VARCHAR(255), 
+	process_id VARCHAR(255), 
+	agency_id VARCHAR(16777216), 
+	branch_code VARCHAR(255), 
+	status VARCHAR(255), 
+	processing_time DECIMAL(18, 0), 
+	unique_id VARCHAR(16777216), 
+	updated_at TIMESTAMP_TZ
+)
+
+/*
+3 rows from overview_dashboard table:
+transaction_id	transaction_start	transaction_end	tenant_id	process_id	agency_id	branch_code	status	processing_time	unique_id	updated_at
+29f412f29c16567a91a00b91a2339e16	2025-05-20 01:58:33	2025-05-20 05:30:44.471000	63d02883e9ae7f0023064275	671900c68dd988004385e51f	None	T23	Completed	212	29f412f29c16567a91a00b91a2339e16_671900c68dd988004385e51f	2025-05-20 05:41:21.309000+00:00
+79bcc729fd4645f5675700a33278398a	2025-05-20 02:04:31	2025-05-20 05:37:40.805000	63d02883e9ae7f0023064275	671900c68dd988004385e51f	None	O19	Completed	213	79bcc729fd4645f5675700a33278398a_671900c68dd988004385e51f	2025-05-20 05:41:21.309000+00:00
+b136997549a4d25756dd1a48d0f1fb15	2025-05-20 01:59:25	2025-05-20 05:37:48.856000	63d02883e9ae7f0023064275	671900c68dd988004385e51f	None	T01	Completed	218	b136997549a4d25756dd1a48d0f1fb15_671900c68dd988004385e51f	2025-05-20 05:41:21.309000+00:00
+*/
+
+
+CREATE TABLE reviewed_records (
+	workflow_id VARCHAR(255), 
+	e5_id VARCHAR(255), 
+	unique_id VARCHAR(16777216), 
+	review_type VARCHAR(255), 
+	trans_load_id DECIMAL(38, 0), 
+	episode_id VARCHAR(255), 
+	services_reviewed VARCHAR(255), 
+	is_reviewed BOOLEAN, 
+	updated_at TIMESTAMP_TZ, 
+	updated_by VARCHAR(1000)
+)
+
+/*
+3 rows from reviewed_records table:
+workflow_id	e5_id	unique_id	review_type	trans_load_id	episode_id	services_reviewed	is_reviewed	updated_at	updated_by
+6806310c8a8424004b22464c	E5A051925000002	7ffb330eaabee84ca4fdcc9b943674fabaf7bfc6cb2a8ce1faca7967d3dfda8c_6806310c8a8424004b22464c	AUTH-REQUEST	1896391	None	null	True	2025-05-19 14:21:28.593000+00:00	Kandy Gillean
+6806310c8a8424004b22464c	E5A051825000002	700656d6aa06f70d5d40b2f821f2f5c07a37a966cf4fd66dc242279af2f773dd_6806310c8a8424004b22464c	AUTH-REQUEST	1894216	None	null	True	2025-05-19 14:12:02.287000+00:00	Kandy Gillean
+6806310c8a8424004b22464c	E5A051825000003	a12377b50fc7c01289da56344f82441ff17f1e668844004bd2180debfb49e560_6806310c8a8424004b22464c	AUTH-REQUEST	1894639	None	null	True	2025-05-19 14:04:34.095000+00:00	Kandy Gillean
+*/
+
+
+CREATE TABLE stage_details (
+	stage_id VARCHAR(16777216), 
+	stage_order DECIMAL(38, 0), 
+	stage_name VARCHAR(16777216), 
+	workflow_id VARCHAR(16777216), 
+	updated_at TIMESTAMP_NTZ, 
+	updated_by VARCHAR(16777216)
+)
+
+/*
+3 rows from stage_details table:
+stage_id	stage_order	stage_name	workflow_id	updated_at	updated_by
+stage_000	0	Eligible Patient export from PCR console HCHB	6440e9957466c000224eff0d	2022-07-12 02:45:28.528000	WORKFLOW_MANAGER
+stage_001	1	PCR data extraction from HCHB	6440e9957466c000224eff0d	2022-07-12 03:14:13.548000	WORKFLOW_MANAGER
+stage_002	2	PCR Submission into Palmetto	6440e9957466c000224eff0d	2022-07-12 03:14:14.783000	WORKFLOW_MANAGER
+*/
+
+
+CREATE TABLE status_details (
+	status_id VARCHAR(255), 
+	status_name VARCHAR(16777216), 
+	updated_at TIMESTAMP_NTZ, 
+	updated_by VARCHAR(255), 
+	status_code VARCHAR(255), 
+	workflow_id VARCHAR(16777216)
+)
+
+/*
+3 rows from status_details table:
+status_id	status_name	updated_at	updated_by	status_code	workflow_id
+status_001	In Progress	2022-07-11 06:02:50.249000	WORKFLOW_MANAGER	IN_PROGRESS	6440e9957466c000224eff0d
+status_002	Completed	2022-07-11 06:02:50.249000	WORKFLOW_MANAGER	COMPLETED	6440e9957466c000224eff0d
+status_003	Needs Intervention	2022-07-11 06:02:50.249000	WORKFLOW_MANAGER	NEEDS_INTERVENTION	6440e9957466c000224eff0d
+*/
+
+
+CREATE TABLE tenant_config (
+	config_key VARCHAR(16777216), 
+	config_json VARIANT, 
+	description VARCHAR(16777216)
+)
+
+/*
+3 rows from tenant_config table:
+config_key	config_json	description
+eva_config	{
+  "authorizationPage": {
+    "authRequestPendingDays": 10,
+    "reviewModeSummaryStatus": {
+      	Config for EVA workflow
+*/
+
+
+CREATE TABLE transactions (
+	trans_load_id DECIMAL(38, 0), 
+	activity_id VARCHAR(16777216), 
+	tenantid VARCHAR(255), 
+	process_id VARCHAR(255), 
+	process_run_id VARCHAR(255), 
+	transaction_id VARCHAR(255), 
+	transaction_status_id VARCHAR(255), 
+	stage_id VARCHAR(255), 
+	fb_id VARCHAR(255), 
+	start_date_time TIMESTAMP_TZ, 
+	end_date_time TIMESTAMP_TZ, 
+	transactionstart TIMESTAMP_TZ, 
+	transactionend TIMESTAMP_TZ, 
+	transactionpriorityflag VARCHAR(2), 
+	attributes_input_json VARIANT, 
+	attributes_output_json VARIANT, 
+	is_final_event BOOLEAN, 
+	trans_latest_flag VARCHAR(2), 
+	updated_by VARCHAR(16777216), 
+	updated_at TIMESTAMP_TZ, 
+	stage_status_id VARCHAR(100), 
+	original_source_code VARCHAR(16777216), 
+	original_source_name VARCHAR(16777216), 
+	user_action_code VARCHAR(16777216), 
+	user_message VARCHAR(16777216), 
+	is_workflow_log_event BOOLEAN, 
+	is_hard_terminate BOOLEAN, 
+	last_succeeded_step VARCHAR(16777216), 
+	agency_id VARCHAR(16777216), 
+	unique_identifier VARCHAR(16777216)
+)
+
+/*
+3 rows from transactions table:
+trans_load_id	activity_id	tenantid	process_id	process_run_id	transaction_id	transaction_status_id	stage_id	fb_id	start_date_time	end_date_time	transactionstart	transactionend	transactionpriorityflag	attributes_input_json	attributes_output_json	is_final_event	trans_latest_flag	updated_by	updated_at	stage_status_id	original_source_code	original_source_name	user_action_code	user_message	is_workflow_log_event	is_hard_terminate	last_succeeded_step	agency_id	unique_identifier
+1899684	CiQ4OWE0Nzc0ZC05MGIzLTRhZmEtYTc4Yy0wZjQyMmViYzhhYzcSJDhhZmY1ZjhkLWU2M2YtNDNlOS1hYTBlLTRhNDRlZjM3MzRk	63d02883e9ae7f0023064275	6440e9957466c000224eff0d	8aff5f8d-e63f-43e9-aa0e-4a44ef3734d2	7e15e1be72b63e93cb95b216bbc042a1	status_003	stage_002	FB010	2025-05-20 06:51:44.008000+00:00	None	2025-05-13 22:00:42.952000+00:00	None	None	{
+  "benefit_period": "1",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "NA"	{
+  "benefit_period": "1",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "NA"	False	Y	AUTOHUB_TRANSCATIONAL_REPORT_LOAD	2025-05-20 07:01:34.771000+00:00	status_003	None	None	action_004	None	True	False	during PCR Submission - Needs Intervention.	None	7e15e1be72b63e93cb95b216bbc042a1_6440e9957466c000224eff0d
+1899685	CiQ4OWE0Nzc0ZC05MGIzLTRhZmEtYTc4Yy0wZjQyMmViYzhhYzcSJDNlZmY5YzZkLWJlMTYtNDUyZi1iNjY5LTEwOTQyMGQ5NTNh	63d02883e9ae7f0023064275	6440e9957466c000224eff0d	3eff9c6d-be16-452f-b669-109420d953a8	89f352f31fd07f91c72a526c1c3365ca	status_001	stage_001	FB010	2025-05-20 06:52:27.587000+00:00	None	2025-05-20 05:04:35.323000+00:00	None	None	{
+  "benefit_period": "2",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "NA"	{
+  "benefit_period": "2",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "NA"	False	Y	AUTOHUB_TRANSCATIONAL_REPORT_LOAD	2025-05-20 07:01:34.771000+00:00	status_001	None	None	action_004	None	True	False	after completion of Download task attachment.	None	89f352f31fd07f91c72a526c1c3365ca_6440e9957466c000224eff0d
+1899686	CiQ4OWE0Nzc0ZC05MGIzLTRhZmEtYTc4Yy0wZjQyMmViYzhhYzcSJDgyY2FmYjJhLWE1NDQtNDJlZS1hY2MwLTc2OTUxMmNlNzEy	63d02883e9ae7f0023064275	6440e9957466c000224eff0d	82cafb2a-a544-42ee-acc0-769512ce712f	3f0782cc05951bb0822bcba185912261	status_001	stage_005	FB008	2025-05-20 06:53:40.085000+00:00	None	2025-05-10 00:34:43.042000+00:00	None	None	{
+  "benefit_period": "1",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	{
+  "benefit_period": "1",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	False	Y	AUTOHUB_TRANSCATIONAL_REPORT_LOAD	2025-05-20 07:01:34.771000+00:00	status_001	None	None	action_004	None	True	False	during Download DL from palmetto	None	3f0782cc05951bb0822bcba185912261_6440e9957466c000224eff0d
+*/
+
+
+CREATE TABLE transactions_fact_details (
+	trans_load_id DECIMAL(38, 0) IDENTITY(1,1), 
+	activity_id VARCHAR(16777216), 
+	tenantid VARCHAR(255), 
+	process_id VARCHAR(255), 
+	process_run_id VARCHAR(255), 
+	transaction_id VARCHAR(255), 
+	transaction_status_id VARCHAR(255), 
+	stage_id VARCHAR(255), 
+	fb_id VARCHAR(255), 
+	start_date_time TIMESTAMP_TZ, 
+	end_date_time TIMESTAMP_TZ, 
+	transactionstart TIMESTAMP_TZ, 
+	transactionend TIMESTAMP_TZ, 
+	transactionpriorityflag VARCHAR(2), 
+	attributes_input_json VARIANT, 
+	attributes_output_json VARIANT, 
+	is_final_event BOOLEAN, 
+	trans_latest_flag VARCHAR(2), 
+	updated_by VARCHAR(16777216), 
+	updated_at TIMESTAMP_TZ, 
+	stage_status_id VARCHAR(100), 
+	original_source_code VARCHAR(16777216), 
+	original_source_name VARCHAR(16777216), 
+	user_action_code VARCHAR(16777216), 
+	user_message VARCHAR(16777216), 
+	is_workflow_log_event BOOLEAN, 
+	is_hard_terminate BOOLEAN, 
+	last_succeeded_step VARCHAR(16777216), 
+	agency_id VARCHAR(16777216), 
+	unique_identifier VARCHAR(16777216)
+)
+
+/*
+3 rows from transactions_fact_details table:
+trans_load_id	activity_id	tenantid	process_id	process_run_id	transaction_id	transaction_status_id	stage_id	fb_id	start_date_time	end_date_time	transactionstart	transactionend	transactionpriorityflag	attributes_input_json	attributes_output_json	is_final_event	trans_latest_flag	updated_by	updated_at	stage_status_id	original_source_code	original_source_name	user_action_code	user_message	is_workflow_log_event	is_hard_terminate	last_succeeded_step	agency_id	unique_identifier
+893399	CiQxZDhlYzZkZC05NGQxLTRhOGQtODhiOC01NmEzYWZhNjdjYTASJDEwNzg1MWVjLTQ2NmUtNDAyNS04MDg4LWM4MDQwMTQ2OWRj	63d02883e9ae7f0023064275	6440e9957466c000224eff0d	107851ec-466e-4025-8088-c80401469dc3	8003f93458e91ef7c9f1dbafe3c215a9	status_005	stage_005	FB008	2024-09-25 08:48:45.298000+00:00	None	2024-09-18 17:35:40.111000+00:00	None	None	{
+  "benefit_period": "9",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	{
+  "benefit_period": "9",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	False	N	AUTOHUB_TRANSCATIONAL_REPORT_LOAD	2024-09-25 08:50:28.536000+00:00	status_005	None	None	action_004	None	True	False	during Download DL from palmetto	None	8003f93458e91ef7c9f1dbafe3c215a9_6440e9957466c000224eff0d
+893400	CiQxZDhlYzZkZC05NGQxLTRhOGQtODhiOC01NmEzYWZhNjdjYTASJGZlOGRmNDI2LWI1OTMtNDJiMC1iYWIyLWQ5YWQ5MzgwNzU2	63d02883e9ae7f0023064275	6440e9957466c000224eff0d	fe8df426-b593-42b0-bab2-d9ad93807560	2e6de18c58bd0c24cad30eeeab3b3e90	status_005	stage_005	FB008	2024-09-25 08:50:08.260000+00:00	None	2024-09-18 17:35:40.111000+00:00	None	None	{
+  "benefit_period": "2",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	{
+  "benefit_period": "2",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	False	N	AUTOHUB_TRANSCATIONAL_REPORT_LOAD	2024-09-25 09:00:31.368000+00:00	status_005	None	None	action_004	None	True	False	during Download DL from palmetto	None	2e6de18c58bd0c24cad30eeeab3b3e90_6440e9957466c000224eff0d
+893401	CiQxZDhlYzZkZC05NGQxLTRhOGQtODhiOC01NmEzYWZhNjdjYTASJGVkNmEwZjRlLTQzNGUtNDIxOS1iMWE5LTNlYjkyNTAwZmRk	63d02883e9ae7f0023064275	6440e9957466c000224eff0d	ed6a0f4e-434e-4219-b1a9-3eb92500fdde	b037888a67c4d31b81d9837037369503	status_005	stage_005	FB008	2024-09-25 08:51:09.568000+00:00	None	2024-09-18 17:35:40.111000+00:00	None	None	{
+  "benefit_period": "1",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	{
+  "benefit_period": "1",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	False	N	AUTOHUB_TRANSCATIONAL_REPORT_LOAD	2024-09-25 09:00:31.368000+00:00	status_005	None	None	action_004	None	True	False	during Download DL from palmetto	None	b037888a67c4d31b81d9837037369503_6440e9957466c000224eff0d
+*/
+
+
+CREATE TABLE transactions_fact_details_analytical (
+	trans_analytics_load_id DECIMAL(38, 0), 
+	tenantid VARCHAR(16777216), 
+	process_id VARCHAR(16777216), 
+	transaction_id VARCHAR(16777216), 
+	transaction_status_id VARCHAR(16777216), 
+	stage_id VARCHAR(16777216), 
+	stage_status_id VARCHAR(16777216), 
+	process_run_date_time TIMESTAMP_TZ, 
+	transactionstart TIMESTAMP_TZ, 
+	transactionend TIMESTAMP_TZ, 
+	trans_latest_flag VARCHAR(16777216), 
+	updated_by VARCHAR(16777216), 
+	updated_at TIMESTAMP_TZ, 
+	user_action_code VARCHAR(16777216), 
+	attributes_input_json VARIANT
+)
+
+/*
+3 rows from transactions_fact_details_analytical table:
+trans_analytics_load_id	tenantid	process_id	transaction_id	transaction_status_id	stage_id	stage_status_id	process_run_date_time	transactionstart	transactionend	trans_latest_flag	updated_by	updated_at	user_action_code	attributes_input_json
+709215	63d02883e9ae7f0023064275	6440e9957466c000224eff0d	96f028d0d732d3e2d991edf9899cca23	status_001	stage_008	status_015	2024-07-25 16:47:02.145000+00:00	2024-07-25 05:04:38.044000+00:00	None	N	AUTOHUB_ANALYTICAL_LAYER_LOAD	2025-02-20 08:48:26.601000+00:00	action_004	{
+  "benefit_period": "7",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com
+709214	63d02883e9ae7f0023064275	6440e9957466c000224eff0d	7791b38516fb0b76b932d63b5c677b54	status_001	stage_005	status_001	2024-07-25 16:45:19.118000+00:00	2024-07-24 05:20:12.508000+00:00	None	N	AUTOHUB_ANALYTICAL_LAYER_LOAD	2025-02-20 08:48:26.601000+00:00	action_004	{
+  "benefit_period": "1",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com
+709221	63d02883e9ae7f0023064275	6440e9957466c000224eff0d	a77592f5228347d92a5fdb8781e6d5a3	status_001	stage_005	status_001	2024-07-25 16:49:17.628000+00:00	2024-07-24 05:20:12.508000+00:00	None	N	AUTOHUB_ANALYTICAL_LAYER_LOAD	2025-02-20 08:48:26.601000+00:00	action_004	{
+  "benefit_period": "1",
+  "benefit_period_status": "DISCHARGED",
+  "billing_periods_submitted": "
+*/
+
+
+CREATE TABLE user_action_dim (
+	action_code VARCHAR(16777216), 
+	action_type VARCHAR(16777216), 
+	action VARCHAR(16777216), 
+	created_at TIMESTAMP_TZ
+)
+
+/*
+3 rows from user_action_dim table:
+action_code	action_type	action	created_at
+action_000	UPDATE_INTERVENTION	NO_ACTION	2025-04-21 11:53:38.066000+00:00
+action_001	UPDATE_INTERVENTION	OPEN	2025-04-21 11:53:38.066000+00:00
+action_002	UPDATE_INTERVENTION	COMPLETED	2025-04-21 11:53:38.066000+00:00
+*/
+
+
+CREATE TABLE user_activity_log (
+	id DECIMAL(38, 0) IDENTITY(1,1), 
+	activity_id VARCHAR(16777216), 
+	process_id VARCHAR(16777216), 
+	transaction_id VARCHAR(16777216), 
+	module_id VARCHAR(16777216), 
+	stage_id VARCHAR(16777216), 
+	fb_id VARCHAR(16777216), 
+	stage_status_id VARCHAR(16777216), 
+	transaction_status_id VARCHAR(16777216), 
+	action_code VARCHAR(16777216), 
+	user_id VARCHAR(16777216), 
+	created_at TIMESTAMP_TZ, 
+	created_by VARCHAR(16777216), 
+	process_run_id VARCHAR(16777216), 
+	user_message VARCHAR(16777216), 
+	agency_id VARCHAR(16777216), 
+	unique_identifier VARCHAR(16777216)
+)
+
+/*
+3 rows from user_activity_log table:
+id	activity_id	process_id	transaction_id	module_id	stage_id	fb_id	stage_status_id	transaction_status_id	action_code	user_id	created_at	created_by	process_run_id	user_message	agency_id	unique_identifier
+7104	CiQ4OWE0Nzc0ZC05MGIzLTRhZmEtYTc4Yy0wZjQyMmViYzhhYzcSJDY1MGQxNDFmLTY4ODYtNDU2NS04N2FlLWIwOWNjOWQzNzIy	6440e9957466c000224eff0d	10fad67e1d78d1e2196c7772e4982473	23801597-fed2-4a31-bfbd-3581360700f8	stage_002	FB005	status_003	status_003	action_002	6458e9dcdf31970028ca8865	2025-05-13 17:31:30.266000+00:00	USER_ACTION_API	650d141f-6886-4565-87ae-b09cc9d3722e	None	None	10fad67e1d78d1e2196c7772e4982473_6440e9957466c000224eff0d
+7097	CiQ4OWE0Nzc0ZC05MGIzLTRhZmEtYTc4Yy0wZjQyMmViYzhhYzcSJDg0MWM0OWUxLTQ5NzgtNGI5OS1iMDE3LWExZTk4NTUzNWQ2	6440e9957466c000224eff0d	54d1aec01d6a400caffaa0881171d238	b28207c5-9f4e-4834-8e8b-da0aa31188b0	stage_002	FB005	status_003	status_003	action_002	6458e9dcdf31970028ca8865	2025-05-13 15:31:41.466000+00:00	USER_ACTION_API	841c49e1-4978-4b99-b017-a1e985535d6e	None	None	54d1aec01d6a400caffaa0881171d238_6440e9957466c000224eff0d
+6818	CiQ4OWE0Nzc0ZC05MGIzLTRhZmEtYTc4Yy0wZjQyMmViYzhhYzcSJDNjNDQ1ZDQ3LWQ3ZTEtNDdjYi1hMGM5LWY2YTU2ZmQ0ODBk	6440e9957466c000224eff0d	9f2d44361ca4bdb5c76397fd82fdcb1b		stage_002	FB005	status_003	status_003	action_003	6458e901138ec6001accef92	2025-05-02 17:44:31.562000+00:00	USER_ACTION_API	3c445d47-d7e1-47cb-a0c9-f6a56fd480df	None	None	9f2d44361ca4bdb5c76397fd82fdcb1b_6440e9957466c000224eff0d
+*/
+
+
+CREATE TABLE user_initiated_action_queue (
+	activity_id VARCHAR(16777216), 
+	tenantid VARCHAR(255), 
+	process_id VARCHAR(255), 
+	process_run_id VARCHAR(255), 
+	transaction_id VARCHAR(255), 
+	transaction_status_id VARCHAR(255), 
+	stage_id VARCHAR(255), 
+	fb_id VARCHAR(255), 
+	start_date_time TIMESTAMP_TZ, 
+	transactionstart TIMESTAMP_TZ, 
+	attributes_input_json VARIANT, 
+	uia_flag VARCHAR(16777216), 
+	updated_by VARCHAR(16777216), 
+	updated_at TIMESTAMP_TZ, 
+	stage_status_id VARCHAR(100), 
+	user_action_code VARCHAR(16777216), 
+	user_message VARCHAR(16777216), 
+	src_updated_by VARCHAR(16777216), 
+	agency_id VARCHAR(16777216), 
+	unique_identifier VARCHAR(16777216)
+)
+
+/*
+3 rows from user_initiated_action_queue table:
+activity_id	tenantid	process_id	process_run_id	transaction_id	transaction_status_id	stage_id	fb_id	start_date_time	transactionstart	attributes_input_json	uia_flag	updated_by	updated_at	stage_status_id	user_action_code	user_message	src_updated_by	agency_id	unique_identifier
+CiQxZDhlYzZkZC05NGQxLTRhOGQtODhiOC01NmEzYWZhNjdjYTASJDI0NWE2ZGIwLWEyNWUtNDBhYS04YzMzLWIxNDM4N2ViYzg3	63d02883e9ae7f0023064275	6440e9957466c000224eff0d	245a6db0-a25e-40aa-8c33-b14387ebc87d	3771a3ad6615adc776d680ac5737ffe9	status_016	stage_008	FB008	2023-08-22 16:50:32.105000+00:00	2023-08-21 17:05:22.829000+00:00	{
+  "benefit_period": "1",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	REQUEST_INITIATED	USER_ACTION	2023-08-22 16:50:32.105000+00:00	status_016	action_005	Submitting manually 	64247763ded2020031376869	None	3771a3ad6615adc776d680ac5737ffe9_6440e9957466c000224eff0d
+CiQxZDhlYzZkZC05NGQxLTRhOGQtODhiOC01NmEzYWZhNjdjYTASJGQ0Y2Y3YzJiLTM3ZGItNGZmOC05ZThiLTE5NzU3MWQ3Y2Ex	63d02883e9ae7f0023064275	6440e9957466c000224eff0d	d4cf7c2b-37db-4ff8-9e8b-197571d7ca12	8656bd18a26faa05e91883eef2022e48	status_016	stage_006	FB009	2023-08-22 12:51:09.737000+00:00	2023-08-16 05:06:24.561000+00:00	{
+  "benefit_period": "2",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	REQUEST_INITIATED	USER_ACTION	2023-08-22 12:51:09.737000+00:00	status_016	action_005	discharged	6458e901138ec6001accef92	None	8656bd18a26faa05e91883eef2022e48_6440e9957466c000224eff0d
+CiQxZDhlYzZkZC05NGQxLTRhOGQtODhiOC01NmEzYWZhNjdjYTASJDA4Yzk3YzJkLWI1YzctNDIyNy04M2JmLTBhNmU2ZjU5OTAz	63d02883e9ae7f0023064275	6440e9957466c000224eff0d	08c97c2d-b5c7-4227-83bf-0a6e6f59903c	384ba2c928b42c99ea2875299a85138b	status_016	stage_009	FB008	2023-08-22 13:27:34.589000+00:00	2023-07-21 17:07:20.690000+00:00	{
+  "benefit_period": "2",
+  "benefit_period_status": "CURRENT",
+  "billing_periods_submitted": "com	REQUEST_INITIATED	USER_ACTION	2023-08-22 13:27:34.589000+00:00	status_016	action_005		6458e9dcdf31970028ca8865	None	384ba2c928b42c99ea2875299a85138b_6440e9957466c000224eff0d
+*/
