@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@import "tailwindcss-primeui";
+@import "primeicons/primeicons.css";
+
+@theme {
+  --color-customPurple: #040421;
+  --color-customBlack: #13131f;
+  --color-customGrey: #21212e;
+  --color-customTop: #1c1b37;
+  --color-customBottom: #1a1a31;
+  --color-customBorder: #4e4d9d;
+  --color-customTopIn: #37353f;
+  --color-customMiddleIn: #403a53;
+  --color-customBottomIn: #282636;
+  --color-customBorderIn: #464563;
+  --color-customBlue: #1575ba;
+  --color-customPurpleCard: #715493;
+  --color-customBgPurple: #1e1b3a;
+}
+
+:root {
+  --scroll-thumb: #b66dc8; /* or your custom purple */
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb);
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) transparent;
+}

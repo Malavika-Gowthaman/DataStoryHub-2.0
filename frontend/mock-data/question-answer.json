@@ -1,0 +1,83 @@
+[
+  {
+    "question": "Find the top 10 customers who log in the most daily and have the highest transaction counts. Include their name, daily login count, and monthly transactions.",
+    "database": "PostgreSQL",
+    "sql_query": "SELECT \n    c.name, \n    aup.avg_daily_logins, \n    aup.monthly_transactions\nFROM \n    customers c\nJOIN \n    accounts a ON c.customer_id = a.customer_id\nJOIN \n    account_usage_patterns aup ON a.account_id = aup.account_id\nORDER BY \n    aup.avg_daily_logins DESC, \n    aup.monthly_transactions DESC\nLIMIT 10;",
+    "execution_time": 3.73,
+    "results": [
+      {
+        "name": "Brent Anderson",
+        "avg_daily_logins": 30.0,
+        "monthly_transactions": 23.0
+      },
+      {
+        "name": "Mr. Trevor Willis",
+        "avg_daily_logins": 30.0,
+        "monthly_transactions": 23.0
+      },
+      {
+        "name": "Anthony Brown",
+        "avg_daily_logins": 30.0,
+        "monthly_transactions": 21.0
+      },
+      {
+        "name": "Emily Taylor",
+        "avg_daily_logins": 30.0,
+        "monthly_transactions": 19.0
+      },
+      {
+        "name": "Carla Lester",
+        "avg_daily_logins": 30.0,
+        "monthly_transactions": 18.0
+      },
+      {
+        "name": "Ann King",
+        "avg_daily_logins": 29.0,
+        "monthly_transactions": 34.0
+      },
+      {
+        "name": "Heather Rios",
+        "avg_daily_logins": 29.0,
+        "monthly_transactions": 26.0
+      },
+      {
+        "name": "Cynthia Kelly",
+        "avg_daily_logins": 29.0,
+        "monthly_transactions": 24.0
+      },
+      {
+        "name": "Brianna Reed",
+        "avg_daily_logins": 29.0,
+        "monthly_transactions": 23.0
+      },
+      {
+        "name": "Shawn Reilly",
+        "avg_daily_logins": 29.0,
+        "monthly_transactions": 22.0
+      }
+    ],
+    "summary": "The top 10 customers who log in the most daily and have the highest transaction counts are:\n\n1. Brent Anderson - 30 daily logins, 23 monthly transactions\n2. Mr. Trevor Willis - 30 daily logins, 23 monthly transactions\n3. Anthony Brown - 30 daily logins, 21 monthly transactions\n4. Emily Taylor - 30 daily logins, 19 monthly transactions\n5. Carla Lester - 30 daily logins, 18 monthly transactions\n6. Ann King - 29 daily logins, 34 monthly transactions\n7. Heather Rios - 29 daily logins, 26 monthly transactions\n8. Cynthia Kelly - 29 daily logins, 24 monthly transactions\n9. Brianna Reed - 29 daily logins, 23 monthly transactions\n10. Shawn Reilly - 29 daily logins, 22 monthly transactions",
+    "followup_questions": [
+      "Who are the top 10 customers with the highest monthly transactions, regardless of daily logins?",
+      "Find the average daily logins and monthly transactions for all customers.",
+      "Which customer has the highest daily login count this month?",
+      "List the top 10 customers with the lowest daily login count but high transaction counts.",
+      "What is the total number of monthly transactions for all customers combined?"
+    ]
+  },
+  {
+    "question": "Who are you",
+    "database": "Snowflake",
+    "sql_query": "The provided context is insufficient to generate a SQL query to answer the question \"Who are you.\" The context does not include any information related to identity or personal data that would allow the creation of such a query.",
+    "execution_time": 4.24,
+    "results": [],
+    "summary": "The data does not provide any information that directly answers the question \"Who are you?\"",
+    "followup_questions": [
+      "What is the most common occupation in the dataset?",
+      "How many unique names are in the dataset?",
+      "What is the average age of individuals in the dataset?",
+      "How many records have missing email addresses?",
+      "What is the distribution of gender in the dataset?"
+    ]
+  }
+]
